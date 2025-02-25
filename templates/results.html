@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="result-container">
+    <h1>🎯 测试结果</h1>
+
+    <div class="summary-card">
+        <div class="stat-item correct">
+            <span>正确率</span>
+            <h2>{{ accuracy }}</h2>
+        </div>
+        <div class="stat-item">
+            <span>正确数</span>
+            <h3>{{ correct }}/{{ total }}</h3>
+        </div>
+    </div>
+
+    {% if wrong_list %}
+    <div class="wrong-list">
+        <h3>❌ 错题记录</h3>
+        {% for item in wrong_list %}
+        <div class="wrong-item">
+            <div class="word-header">
+                <strong>{{ item.word }}</strong>
+            </div>
+            <div class="answer-compare">
+                <p>正确选项：{{ item.correct + 1 }}</p>
+                <p>你的选择：{{ item.user_choice + 1 }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <button class="home-btn" onclick="window.location='/'">重新测试</button>
+</div>
+{% endblock %}

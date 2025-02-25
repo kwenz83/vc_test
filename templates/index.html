@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="welcome-card">
+    <h1>📖 单词测试系统</h1>
+    <div class="config-panel">
+        <form id="testConfig">
+            <div class="form-group">
+                <label>测试单词数量（10-100）:</label>
+                <input type="number" id="testSize" min="10" max="100" value="20" required>
+            </div>
+            <button type="submit" class="start-btn">开始测试 →</button>
+        </form>
+        <p class="notice">当前测试词库包含 {{ word_count }} 个单词</p>
+    </div>
+</div>
+{% endblock %}
